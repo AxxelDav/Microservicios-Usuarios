@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -77,5 +78,8 @@ public class UsuarioControlador {
         Map<String, Object> resultado = usuarioServicio.getUsuarioAndVehiculos(usuarioId);
         return ResponseEntity.ok(resultado);
     }
+
+
+
 
 }
