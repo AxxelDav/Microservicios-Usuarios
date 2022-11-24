@@ -30,12 +30,12 @@ public class UsuarioServicio {
     private MotoFeignClient motoFeignClient;
 
     public List<Auto> getAutos(Integer usuarioId) {
-        List<Auto> autos = restTemplate.getForObject("http://localhost:8002/auto/usuario/" + usuarioId, List.class);
+        List<Auto> autos = restTemplate.getForObject("http://auto-service/auto/usuario/" + usuarioId, List.class);
         return autos;
     }
 
     public List<Moto> getMotos(Integer usuarioId) {
-        List<Moto> motos = restTemplate.getForObject("http://localhost:8003/moto/usuario/" + usuarioId, List.class);
+        List<Moto> motos = restTemplate.getForObject("http://moto-service/moto/usuario/" + usuarioId, List.class);
         return motos;
     }
 
