@@ -10,6 +10,3 @@ spring:
           search-paths: config-data
   application:
     name: config-service
-
-
-#config-data es una carpeta que va a contener un archivo con informacion para cada microservicio
