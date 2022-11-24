@@ -89,26 +89,26 @@ public class UsuarioControlador {
     //Metodos FallBack
     private ResponseEntity<List<Auto>> fallBackGetAutos(@PathVariable("usuarioId") Integer id,
                                                           RuntimeException excepcion) {
-        return new ResponseEntity("El usuario : " + id + " tiene los autos en el taller", HttpStatus.OK);
+        return new ResponseEntity("El usuario: '" + id + "' tiene los autos en el taller", HttpStatus.OK);
     }
 
-    private ResponseEntity<Auto> fallBackSaveAutos(@PathVariable("usuarioId") Integer id, @RequestBody Auto auto,
+    private ResponseEntity<Auto> fallBackSaveAuto(@PathVariable("usuarioId") Integer id, @RequestBody Auto auto,
                                                     RuntimeException excepcion) {
-        return new ResponseEntity("El usuario : " + id + " no tiene dinero para los autos", HttpStatus.OK);
+        return new ResponseEntity("El usuario: '" + id + "' no tiene dinero para los autos", HttpStatus.OK);
     }
 
     private ResponseEntity<List<Moto>> fallBackGetMotos(@PathVariable("usuarioId") Integer id, RuntimeException excepcion) {
-        return new ResponseEntity("El usuario : " + id + " tiene las motos en el taller", HttpStatus.OK);
+        return new ResponseEntity("El usuario: '" + id + "' tiene las motos en el taller", HttpStatus.OK);
     }
 
     private ResponseEntity<Moto> fallBackSaveMoto(@PathVariable("usuarioId") Integer id, @RequestBody Moto carro,
                                                   RuntimeException excepcion) {
-        return new ResponseEntity("El usuario : " + id + " no tiene dinero para las motos", HttpStatus.OK);
+        return new ResponseEntity("El usuario: '" + id + "' no tiene dinero para las motos", HttpStatus.OK);
     }
 
     private ResponseEntity<Map<String, Object>> fallBackGetTodos(@PathVariable("usuarioId") Integer id,
                                                                  RuntimeException excepcion) {
-        return new ResponseEntity("El usuario : " + id + " tiene los vehiculos en el taller", HttpStatus.OK);
+        return new ResponseEntity("El usuario: '" + id + "' tiene los vehiculos en el taller", HttpStatus.OK);
     }
 
 
