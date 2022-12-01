@@ -7,6 +7,7 @@ Tecnologias utilizadas:
 - Java
 - Spring Boot
 - Maven
+- H2
 - Hibernate
 - JPA
 - Api Gateway
