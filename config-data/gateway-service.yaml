@@ -12,6 +12,8 @@ eureka:
 spring:
   cloud:
     gateway:
+      default-filters:
+        - TokenRelay   #Esto es el patron que vamos a implementar, el gateway va a estar enviando tokens a los recursos protegidos (en este caso user service)
       discovery:
         locator:
           enabled: true
@@ -20,6 +22,8 @@ spring:
           uri: lb://usuario-service
           predicates:
             - Path=/usuario/**
+          filters:
+            - RemoveRequestHeader=Cookie  
         - id: auto-service
           uri: lb://auto-service
           predicates:
@@ -28,3 +32,20 @@ spring:
           uri: lb://moto-service
           predicates:
             - Path=/moto/**
+
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8080/realms/basicAuth/protocol/openid-connect/auth
+            userinfo-uri: http://localhost:8080/realms/basicAuth/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+            token-uri: http://localhost:8080/realms/basicAuth/protocol/openid-connect/token
+        registration:
+          basicauth: 
+            provider: keycloak
+            client-id: basicauth 
+            client-secret: CHeRLeHEdC7IEtEn0teNkB2ThneWlrUJ
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/basicauth"

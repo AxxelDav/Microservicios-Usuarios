@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Microservicios - Tecnologia Avanza.iml" filepath="$PROJECT_DIR$/.idea/Microservicios - Tecnologia Avanza.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auto-service/auto-servicio.iml" filepath="$PROJECT_DIR$/auto-service/auto-servicio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-service.iml" filepath="$PROJECT_DIR$/config-server/config-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-service/eureka-service.iml" filepath="$PROJECT_DIR$/eureka-service/eureka-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-service/gateway-service.iml" filepath="$PROJECT_DIR$/gateway-service/gateway-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moto-service/moto-servicie.iml" filepath="$PROJECT_DIR$/moto-service/moto-servicie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/usuario-service/usuario-service.iml" filepath="$PROJECT_DIR$/usuario-service/usuario-service.iml" />
+    </modules>
+  </component>
+</project>
