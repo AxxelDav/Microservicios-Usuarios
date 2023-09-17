@@ -13,7 +13,7 @@ spring:
   cloud:
     gateway:
       default-filters:
-        - TokenRelay   #Esto es el patron que vamos a implementar, el gateway va a estar enviando tokens a los recursos protegidos (en este caso user service)
+        - TokenRelay
       discovery:
         locator:
           enabled: true
@@ -43,9 +43,9 @@ spring:
             user-name-attribute: preferred_username
             token-uri: http://localhost:9080/realms/backend-realm/protocol/openid-connect/token
         registration:
-          backend-client: 
+          backend-client:
             provider: keycloak
-            client-id: backend-client 
+            client-id: backend-client
             client-secret: cf02FU9CsssKjItyWlvWEDbCpk1PEUFB
             authorization-grant-type: authorization_code
-            redirect-uri: "http://localhost:9080/login/oauth2/code/backend-client"
+            redirect-uri: "http://localhost:8080/login/oauth2/code/backend-client"
