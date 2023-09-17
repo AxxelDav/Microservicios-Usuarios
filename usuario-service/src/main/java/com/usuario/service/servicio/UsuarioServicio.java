@@ -7,6 +7,12 @@ import com.usuario.service.modelos.Auto;
 import com.usuario.service.modelos.Moto;
 import com.usuario.service.repositorio.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -30,13 +36,19 @@ public class UsuarioServicio {
     private MotoFeignClient motoFeignClient;
 
     public List<Auto> getAutos(Integer usuarioId) {
-        List<Auto> autos = restTemplate.getForObject("http://auto-service/auto/usuario/" + usuarioId, List.class);
-        return autos;
+        Jwt jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Authorization", "Bearer " + jwt.getTokenValue());
+        ResponseEntity<List> autos = restTemplate.exchange("http://auto-service/auto/usuario/" + usuarioId, HttpMethod.GET, new HttpEntity<>(httpHeaders), List.class);
+        return autos.getBody();
     }
 
     public List<Moto> getMotos(Integer usuarioId) {
-        List<Moto> motos = restTemplate.getForObject("http://moto-service/moto/usuario/" + usuarioId, List.class);
-        return motos;
+        Jwt jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Authorization", "Bearer " + jwt.getTokenValue());
+        ResponseEntity<List> motos = restTemplate.exchange("http://moto-service/moto/usuario/" + usuarioId, HttpMethod.GET, new HttpEntity<>(httpHeaders), List.class);
+        return motos.getBody();
     }
 
     public List<Usuario> getAll() {
